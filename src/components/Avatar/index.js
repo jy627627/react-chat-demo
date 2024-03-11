@@ -1,6 +1,6 @@
 import React from "react";
-import face from '../../images/face.jpg'
 import { AvatarClip, AvatarImage, StatusIcon, StyleAvatar } from './style'
+import PropTypes from "prop-types";
 
 export default function Avatar({
    src,
@@ -9,6 +9,14 @@ export default function Avatar({
    statusIconSize = '8px',
     ...rest
 }) {
+
+    Avatar.prototype = {
+        src: PropTypes.string.isRequired,
+        size: PropTypes.string,
+        status: PropTypes.oneOf(['online', 'offline']),
+        statusIconSize: PropTypes.string,
+    }
+
     return (
         <StyleAvatar {...rest}>
             {status && (
